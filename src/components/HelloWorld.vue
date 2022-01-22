@@ -9,6 +9,7 @@
             class="mt-5" 
             append-icon='mdi-search-web'
             @click:append="searching"
+            @keydown.enter="searching"
         >
         </v-text-field>
       </v-col>
@@ -31,7 +32,7 @@
               class="mb-1"
             >
               <h2 class="font-weight-bold white--text mr-5">
-                List Device
+                List Documents
               </h2>
               <v-text-field
                 v-model="search"
@@ -91,7 +92,7 @@
               >
                 <v-card>
                   <v-card-title class="subheading font-weight-bold">
-                    Devices: {{ index + 1 }}
+                    Doc: {{ index + 1 }}
                   </v-card-title>
 
                   <v-divider></v-divider>
@@ -206,7 +207,7 @@
           <v-list dense>
             <v-list-item class="blue--text">
               <v-list-item-content>
-                Training Clients:
+                Training:
               </v-list-item-content>
               <v-list-item-content class="align-end">
                 <div class="d-flex align-center">
@@ -216,7 +217,7 @@
             </v-list-item>
             <v-list-item class="orange--text">
               <v-list-item-content>
-                Waiting Clients :
+                Waiting:
               </v-list-item-content>
               <v-list-item-content class="align-end">
                 <div class="d-flex align-center">
@@ -226,7 +227,7 @@
             </v-list-item>
             <v-list-item class="green--text">
               <v-list-item-content>
-                Sent Models:
+                Sent:
               </v-list-item-content>
               <v-list-item-content class="align-end">
                 <div class="d-flex align-center">
@@ -236,7 +237,7 @@
             </v-list-item>
             <v-list-item class="red--text">
               <v-list-item-content>
-                Offline Clients:
+                Offline:
               </v-list-item-content>
               <v-list-item-content class="align-end">
                 <div class="d-flex align-center">
