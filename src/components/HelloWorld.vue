@@ -231,7 +231,7 @@
       onGet(que) {
         try {
           axios.get(
-            "http://20.119.64.235/query/"+que
+            "https://ir.vync.online/query/"+que
           ).then(response =>{
             // JSON responses are automatically parsed.
             console.log(response.data);
