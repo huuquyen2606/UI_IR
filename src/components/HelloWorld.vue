@@ -10,6 +10,7 @@
       The source is articles taken from 3 reliable online newspapers including VnExpress, Thanh Nien and Dan Tri.
       And these articles were written from January 2021 to December 2021.
       Executing members include Nguyen Huu Quyen - 18521321, Nguyen Tan Phuc - 18521259 and Hoang Ngoc Ba Thi - 19522255.
+      And most importantly, this search system only supports searching in Vietnamese
     </v-card-subtitle>
     <v-row class="mx-16 mt-1" >
       <v-col cols="12">
