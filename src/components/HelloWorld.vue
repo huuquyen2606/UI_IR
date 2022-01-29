@@ -1,5 +1,16 @@
 <template>
   <div>
+    <v-card-subtitle
+      elevation="10"
+      outlined
+      shaped
+      class="mx-16 mt-2"
+    >
+      QTP Search is a website that helps to search for articles related to health topics.
+      The source is articles taken from 3 reliable online newspapers including VnExpress, Thanh Nien and Dan Tri.
+      And these articles were written from January 2021 to December 2021.
+      Executing members include Nguyen Huu Quyen - 18521321, Nguyen Tan Phuc - 18521259 and Hoang Ngoc Ba Thi - 19522255.
+    </v-card-subtitle>
     <v-row class="mx-16 mt-1" >
       <v-col cols="12">
         <v-text-field label="Search Here ..." 
@@ -231,7 +242,7 @@
       onGet(que) {
         try {
           axios.get(
-            "https://ir.vync.online/query/"+que
+            "https://huuquyenir.vync.online/query/"+que
           ).then(response =>{
             // JSON responses are automatically parsed.
             console.log(response.data);
