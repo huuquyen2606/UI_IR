@@ -13,7 +13,7 @@
       And most importantly, this search system only supports searching in Vietnamese
       <div>Suggested keywords: 'Covid19', 'NCOV', 'ung thư', 'vaccine', 'tiêm phòng mũi 3' ...</div>
     </v-card-subtitle>
-    <v-row class="mx-16 mt-1" >
+    <v-row class="mx-16" >
       <v-col cols="12">
         <v-text-field label="Search Here ..." 
             v-model="searchContent"
