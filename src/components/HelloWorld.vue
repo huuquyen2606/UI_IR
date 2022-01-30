@@ -1,5 +1,20 @@
 <template>
-  <div>
+  <div class="mb-5">
+    <v-overlay :value="loading">
+      <v-alert
+        color="primary"
+        dark
+        prominent
+      >
+        <v-progress-circular
+          indeterminate
+          size="64"
+          class="ml-2 mr-5"
+        > 
+        </v-progress-circular>
+        Retrieving related articles ...
+      </v-alert>
+    </v-overlay>
     <v-card-subtitle
       elevation="10"
       outlined
@@ -13,7 +28,7 @@
       And most importantly, this search system only supports searching in Vietnamese
       <div>Suggested keywords: 'Covid19', 'NCOV', 'ung thư', 'vaccine', 'tiêm phòng mũi 3' ...</div>
     </v-card-subtitle>
-    <v-row class="mx-16" >
+    <v-row class="mx-14" >
       <v-col cols="12">
         <v-text-field label="Search Here ..." 
             v-model="searchContent"
@@ -22,12 +37,21 @@
             :clearable = "!loading"
             append-icon='mdi-search-web'
             @click:append="searching"
-            @keydown.enter="searching"
+            @keydown.enter="searching"   
             :loading="loading"
         >
         </v-text-field>
       </v-col>
     </v-row>
+    <v-alert
+      v-if="items.length == 0 && loading == false && flag_beg == searchContent"
+      class="mx-16"
+      outlined
+      type="warning"
+      prominent
+    >
+      Could not find articles with content related to this keyword "{{this.searchContent}}"
+    </v-alert>
     <v-row  v-if="items.length>0">
       <v-col cols="11" class="mx-16">
         <v-data-iterator
@@ -95,8 +119,13 @@
                 <v-card>
                   <v-card-title class="subheading font-weight-bold">
                     <!-- Doc {{ item.id}} -->
-                    <v-btn text x-large @click="newSite(item.link)"  >
-                      Doc {{item.id}}
+                    <v-btn text x-large @click="newSite(item.link)" >
+                      <span
+                        class="d-inline-block text-truncate"
+                        style="max-width: 400px;"
+                      >
+                        Doc {{item.id}}: {{item.title}}
+                      </span>
                       <v-icon color="blue" class="ml-2">
                         mdi-page-next-outline
                       </v-icon>
@@ -213,6 +242,7 @@
   export default {
     name: 'HelloWorld',
     data: () => ({
+      flag_beg : 'Mock',
       searchContent:'',
       itemsPerPageArray: [4, 8, 12],
       search: '',
@@ -254,12 +284,17 @@
             })
             this.items = response.data;
             this.loading = false;
+            this.flag_beg = this.searchContent;
           })
           
         } catch (error) {
           console.log(error);
         }
       },
+      // clear_r(){
+      //   this.searchContent=''
+      //   this.flag_beg = false
+      // },
       newSite(link){
         window.open(link, "_blank");    
       },
