@@ -277,7 +277,7 @@
             "https://huuquyenir.vync.online/query/"+que
           ).then(response =>{
             // JSON responses are automatically parsed.
-            console.log(response.data)
+            // console.log(response.data)
             this.items = response.data;
             this.loading = false;
             this.flag_beg = this.searchContent;
