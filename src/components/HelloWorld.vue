@@ -152,15 +152,15 @@
                       </v-list-item-content>
                     </v-list-item>
                     <v-list-item>
-                      <v-list-item-content :class="{ 'blue--text': sortBy === 'Ref' }">
+                      <v-list-item-content :class="{ 'blue--text': sortBy === 'Type' }">
                         Ref:
                       </v-list-item-content>
                       <v-list-item-content
                         class="align-end"
-                        :class="{ 'blue--text': sortBy === 'Ref' }"
+                        :class="{ 'blue--text': sortBy === 'Type' }"
                       >
                         <div class="d-flex align-center">
-                          {{item['ref'] == 1 ? 'VnExpress' : item['ref'] == 2 ? 'Dân Trí':'Thanh Niên'}}
+                          {{item['type'] == 1 ? 'VnExpress' : item['type'] == 2 ? 'Dân Trí':'Thanh Niên'}}
                         </div>
                       </v-list-item-content>
                     </v-list-item>
@@ -255,7 +255,7 @@
       keys: [
         'ID',
         'Cosi',
-        'Ref',
+        'Type',
       ],
       items: [
       ],
@@ -267,7 +267,7 @@
         return Math.ceil(this.items.length / this.itemsPerPage)
       },
       filteredKeys () {
-        return this.keys.filter(key => key !== 'Ref' && key !== 'Link')
+        return this.keys.filter(key => key !== 'Type' && key !== 'Link')
       },
     },
     methods: {
@@ -277,11 +277,7 @@
             "https://huuquyenir.vync.online/query/"+que
           ).then(response =>{
             // JSON responses are automatically parsed.
-            console.log(response.data);
-            // let _docs = [];
-            response.data.forEach(i=>{
-              console.log(i)
-            })
+            console.log(response.data)
             this.items = response.data;
             this.loading = false;
             this.flag_beg = this.searchContent;
