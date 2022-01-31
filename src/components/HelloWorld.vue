@@ -153,7 +153,7 @@
                     </v-list-item>
                     <v-list-item>
                       <v-list-item-content :class="{ 'blue--text': sortBy === 'Type' }">
-                        Ref:
+                        Type:
                       </v-list-item-content>
                       <v-list-item-content
                         class="align-end"
